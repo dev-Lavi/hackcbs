@@ -8,11 +8,13 @@ import HPFooter from '@/components/HPFooter';
 
 const LandingPage = () => {
   const brands = [
-    { name: 'Amazon', logo: '/amazon.svg' },
-    { name: 'Apple', logo: '/apple.svg' },
-    { name: 'Spotify', logo: '/spotify.svg' },
-    { name: 'Microsoft', logo: '/microsoft.svg' },
-  ];
+  { name: "Hospital",   logo: "/brand/HospitalBuilding.png" },
+  { name: "Ventilator", logo: "/brand/Ventilator.png" },
+  { name: "Oxygen",     logo: "/brand/O2Can.png" },
+  { name: "Blood Bag",  logo: "/brand/BloodBag.png" },
+  { name: "Records",    logo: "/brand/ClipBoard.png" },
+  { name: "Emergency",  logo: "/brand/Alarm.png" },
+];
 
   const advantages = [
     { number: '2400+', label: 'Happy Customers' },
@@ -53,18 +55,22 @@ const LandingPage = () => {
 
               {/* Trusted By Section */}
               <div>
-                <p className="text-sm text-gray-500 mb-4">Trusted by</p>
-                <div className="flex space-x-6 items-center">
-                  {brands.map((brand) => (
-                    <motion.img
-                      key={brand.name}
-                      src={brand.logo}
-                      alt={brand.name}
-                      className="h-8 w-auto grayscale hover:grayscale-0 transition-all"
-                      whileHover={{ scale: 1.1 }}
-                    />
-                  ))}
-                </div>
+                <p className="mt-6 text-sm text-gray-500">
+  Trusted by hospitals and responders across India.
+</p>
+<div className="mt-3 flex flex-wrap items-center gap-6 grayscale opacity-80">
+  {brands.map((brand) => (
+    <motion.img
+      key={brand.name}
+      src={brand.logo}
+      alt={brand.name}
+      className="h-10 w-auto"
+      loading="lazy"
+      whileHover={{ scale: 1.06 }}
+      transition={{ duration: 0.15 }}
+    />
+  ))}
+</div>
               </div>
             </motion.div>
 
