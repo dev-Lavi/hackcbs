@@ -20,10 +20,16 @@ const HPHeader = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src="/logo.svg" alt="MRGENSEE" className="h-14 w-auto" />
-          </Link>
+          {/* Logo + Text */}
+<Link to="/" className="flex items-center gap-3 -mt-[1px]">
+  <img src="/logo-icon.svg" alt="MRGENSEE logo" className="h-14 w-auto" />
+
+  <span className="text-[#277FFF] text-2xl font-semibold tracking-tight font-brand -ml-2">
+  MRGENSEE
+</span>
+
+
+</Link>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

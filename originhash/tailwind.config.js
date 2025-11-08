@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+      sans: ['Manrope', 'sans-serif'], // default app font
+      brand: ['Manrope', 'sans-serif'], // optional for your logo only
+    },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
