@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Login from "./components/Login";
+
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
@@ -28,7 +28,6 @@ import ModulesPage from "./pages/CourseVideos";
 import CreateCourse from "./pages/CreateCourse";
 import AdminCourses from "./pages/AdminCourses";
 import AuthLayout from "./components/AuthLayout";
-import Footerauth from "./components/Footerauth";
 import CourseDetails from "./pages/CourseDetails";
 import UpdateHeaderRegion from "./pages/HeaderRegion";
 import CoreDetailsUpdate from "./pages/CoreUpdate";
@@ -39,6 +38,7 @@ import UpdateCompanyInfo from "./pages/UpdateCompanyInfo";
 import AdminDashboard from "./pages/AdminDashboard";
 import UpdateProfile from "./pages/UpdateProfile";
 import LandingPage from "./pages/LandingPage";
+import RegisterHospital from "./pages/RegisterHospital";
 
 function App() {
   return (
@@ -46,11 +46,12 @@ function App() {
       <>
         <ToastContainer position="top-center" autoClose={3000} />
         <Routes>
-          <Route path="/" element={
-            <AuthLayout>
-              <Login />
-            </AuthLayout>
-          } />
+          <Route
+            path="/"
+            element={
+                <LandingPage />
+            }
+          />
           <Route path="/register" element={<AuthLayout><Register /></AuthLayout>} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
@@ -66,17 +67,16 @@ function App() {
                     <Route
             path="/services"
             element={
-              <UserDashboardLayout>
+              
                 <Dashboard />
-              </UserDashboardLayout>
             }
           />
 
-          <Route
-            path="/landing"
+                    <Route
+            path="/registerhs"
             element={
         
-                <LandingPage />
+                <RegisterHospital />
               
             }
           />
