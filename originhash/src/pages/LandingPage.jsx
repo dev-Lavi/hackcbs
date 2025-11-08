@@ -8,12 +8,12 @@ import HPFooter from '@/components/HPFooter';
 
 const LandingPage = () => {
   const brands = [
-  { name: "Hospital",   logo: "/HospitalBuilding.png" },
-  { name: "Ventilator", logo: "/Ventilator.png" },
-  { name: "Oxygen",     logo: "/O2Can.png" },
-  { name: "Blood Bag",  logo: "/BloodBag.png"},
-  { name: "Records",    logo: "/ClipBoard.png" },
-  { name: "Emergency",  logo: "/Alarm.png" },
+  { name: "Hospital",   logo: "/brand/HospitalBuilding.png" },
+  { name: "Ventilator", logo: "/brand/Ventilator.png" },
+  { name: "Oxygen",     logo: "/brand/O2Can.png" },
+  { name: "Blood Bag",  logo: "/brand/BloodBag.png" },
+  { name: "Records",    logo: "/brand/ClipBoard.png" },
+  { name: "Emergency",  logo: "/brand/Alarm.png" },
 ];
 
   const advantages = [
@@ -27,7 +27,7 @@ const LandingPage = () => {
       
       <main className="pt-24">
         {/* Hero Section */}
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-12 relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <motion.div
@@ -50,23 +50,27 @@ const LandingPage = () => {
                 size="lg" 
                 className="bg-blue-500 hover:bg-blue-600 mb-12"
               >
-                Emergency →
+                Book an appointment →
               </Button>
 
               {/* Trusted By Section */}
               <div>
-                <p className="text-sm text-gray-500 mb-4">Trusted by</p>
-                <div className="flex space-x-6 items-center">
-                  {brands.map((brand) => (
-                    <motion.img
-                      key={brand.name}
-                      src={brand.logo}
-                      alt={brand.name}
-                      className="h-8 w-auto grayscale hover:grayscale-0 transition-all"
-                      whileHover={{ scale: 1.1 }}
-                    />
-                  ))}
-                </div>
+                <p className="mt-6 text-sm text-gray-500">
+  Trusted by hospitals and responders across India.
+</p>
+<div className="mt-3 flex flex-wrap items-center gap-6 grayscale opacity-80">
+  {brands.map((brand) => (
+    <motion.img
+      key={brand.name}
+      src={brand.logo}
+      alt={brand.name}
+      className="h-10 w-auto"
+      loading="lazy"
+      whileHover={{ scale: 1.06 }}
+      transition={{ duration: 0.15 }}
+    />
+  ))}
+</div>
               </div>
             </motion.div>
 
@@ -97,29 +101,37 @@ const LandingPage = () => {
                 </Card>
               </motion.div>
 
-              {/* Dotted Line Path */}
-              <svg
-                className="absolute bottom-20 left-0 w-full h-32 z-0"
-                viewBox="0 0 800 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 50 C 200 50, 600 50, 800 50"
-                  stroke="#2196F3"
-                  strokeWidth="2"
-                  strokeDasharray="8 8"
-                  strokeLinecap="round"
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="0"
-                    to="-16"
-                    dur="1s"
-                    repeatCount="indefinite"
-                  />
-                </path>
-              </svg>
+              {/* Dotted line path (animated, inline SVG) */}
+<svg
+  className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2 -bottom-10 md:-bottom-14 w-[115%] max-w-none z-0"
+  viewBox="-20 0 820 360"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id="hpGrad" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stopColor="#93C5FD" />   {/* sky-300 */}
+      <stop offset="100%" stopColor="#60A5FA" /> {/* sky-400 */}
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M782.25 1.56367C747.888 1.61145 713.459 -3.07487 683.033 15.9383C664.093 27.7736 651.844 46.2021 641.229 65.4059C627.84 89.6298 618.722 117.703 597.696 135.812C576.67 153.921 550.649 164.878 524.887 170.751C493.667 177.869 464.042 157.157 442.936 136.195C416.997 110.432 398.731 75.438 398.248 38.2754C398.087 25.9285 407.486 12.2598 420.653 10.6922C443.4 7.98395 446.814 76.0201 447.393 89.2914C448.154 106.721 449.193 125.531 443.782 142.391C432.507 177.519 378.268 190.18 370.025 192.112C361.782 194.045 305.638 208.513 251.227 217.568C196.815 226.624 133.933 221.525 79.6634 239.246C52.1517 248.229 23.401 264.932 5.61717 288.172C-8.01817 305.99 -7.97868 322.106 -9.79887 343.381"
+    fill="none"
+    stroke="url(#hpGrad)"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeDasharray="10 10"
+  >
+    <animate
+      attributeName="stroke-dashoffset"
+      from="0"
+      to="-20"
+      dur="1.2s"
+      repeatCount="indefinite"
+    />
+  </path>
+</svg>
 
               {/* Doctor Image */}
               <motion.div
