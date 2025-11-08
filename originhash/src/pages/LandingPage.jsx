@@ -8,11 +8,13 @@ import HPFooter from '@/components/HPFooter';
 
 const LandingPage = () => {
   const brands = [
-    { name: 'Amazon', logo: '/amazon.svg' },
-    { name: 'Apple', logo: '/apple.svg' },
-    { name: 'Spotify', logo: '/spotify.svg' },
-    { name: 'Microsoft', logo: '/microsoft.svg' },
-  ];
+  { name: "Hospital",   logo: "/HospitalBuilding.png" },
+  { name: "Ventilator", logo: "/Ventilator.png" },
+  { name: "Oxygen",     logo: "/O2Can.png" },
+  { name: "Blood Bag",  logo: "/BloodBag.png"},
+  { name: "Records",    logo: "/ClipBoard.png" },
+  { name: "Emergency",  logo: "/Alarm.png" },
+];
 
   const advantages = [
     { number: '2400+', label: 'Happy Customers' },
@@ -48,7 +50,7 @@ const LandingPage = () => {
                 size="lg" 
                 className="bg-blue-500 hover:bg-blue-600 mb-12"
               >
-                Book an appointment →
+                Emergency →
               </Button>
 
               {/* Trusted By Section */}

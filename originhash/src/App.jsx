@@ -39,6 +39,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import UpdateProfile from "./pages/UpdateProfile";
 import LandingPage from "./pages/LandingPage";
 import RegisterHospital from "./pages/RegisterHospital";
+import PatientAdmission from "./pages/PatientAdmission";
 
 function App() {
   return (
@@ -69,6 +70,14 @@ function App() {
             element={
               
                 <Dashboard />
+            }
+          />
+
+                              <Route
+            path="/patientAssign"
+            element={
+              
+                <PatientAdmission />
             }
           />
 
