@@ -59,7 +59,7 @@ const LandingPage = () => {
 </div>
 
               <a
-  href="/emergency"
+  href="/services"
   className="
     inline-flex items-center
     rounded-2xl px-7 md:px-10 py-4 md:py-5
@@ -195,7 +195,7 @@ const LandingPage = () => {
           </div>
 
           {/* Booking Steps */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
@@ -219,7 +219,7 @@ const LandingPage = () => {
                 Book Now
               </Button>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Services Section */}
           <div className="relative mt-32 mb-24">

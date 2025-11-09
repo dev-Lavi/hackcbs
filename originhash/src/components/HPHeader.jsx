@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 const HPHeader = () => {
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "Emergency", path: "/emergency" },
-    { label: "Find Hospitals", path: "/find-hospitals" },
-    { label: "About us", path: "/about" },
-    { label: "Contact us", path: "/contact" },
+    { label: "Emergency", path: "/services" },
+    { label: "Find Hospitals", path: "/services" },
+    { label: "About us", path: "#about-us" },
+    { label: "Contact us", path: "#contact-us" },
   ];
 
   return (
@@ -21,10 +21,10 @@ const HPHeader = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo + Text */}
-<Link to="/" className="flex items-center gap-3 -mt-[1px]">
+<Link to="/" className="flex items-center gap-3 -mt-[1px] no-underline">
   <img src="/logo-icon.svg" alt="MRGENSEE logo" className="h-14 w-auto" />
 
-  <span className="text-[#277FFF] text-2xl font-semibold tracking-tight font-brand -ml-2">
+  <span className="text-[#277FFF] text-2xl font-semibold tracking-tight font-brand -ml-2 no-underline">
   MRGENSEE
 </span>
 
@@ -37,7 +37,16 @@ const HPHeader = () => {
               <Link
                 key={item.label}
                 to={item.path}
-                className="text-gray-600 hover:text-blue-600 transition-colors"
+                className="text-gray-600 hover:text-blue-600 transition-colors no-underline"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.getElementById(item.label.toLowerCase().replace(/\s+/g, '-'));
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = item.path;
+                  }
+                }}
               >
                 {item.label}
               </Link>
@@ -49,7 +58,7 @@ const HPHeader = () => {
   asChild
   className="bg-gradient-to-r from-[#69B6FF] via-[#3B8DFF] to-[#277FFF] hover:shadow-[0_16px_36px_rgba(39,127,255,0.35)] text-white rounded-xl px-5 py-2.5 font-semibold no-underline"
 >
-  <Link to="/join-hospital" className="no-underline">
+  <Link to="/Loginhp" className="no-underline">
     Join as Hospital
   </Link>
 </Button>

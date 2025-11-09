@@ -92,7 +92,7 @@ function App() {
           />
 
                               <Route
-            path="/patientAssign"
+            path="admin/patientAssign"
             element={
               
                 <PatientAdmission />

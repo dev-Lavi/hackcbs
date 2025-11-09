@@ -44,7 +44,7 @@ export default function HospitalLogin() {
         localStorage.setItem("hospitalId", data.user.hospital.id);
         
         alert("✅ Login successful! Welcome back, " + data.user.name);
-        navigate("/admin/admit-patient");
+        navigate("/admin/patientAssign");
       } else {
         setError(data.message || "Login failed");
       }
@@ -57,15 +57,15 @@ export default function HospitalLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center px-4 ">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md"
+        className="w-full max-w-md mt-4 mb-4"
       >
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-8 m">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
