@@ -40,6 +40,8 @@ import UpdateProfile from "./pages/UpdateProfile";
 import LandingPage from "./pages/LandingPage";
 import RegisterHospital from "./pages/RegisterHospital";
 import PatientAdmission from "./pages/PatientAdmission";
+import HospitalRegister from "./pages/HospitalRegis";
+import HospitalLogin from "./pages/hsLogin";
 
 function App() {
   return (
@@ -70,6 +72,22 @@ function App() {
             element={
               
                 <Dashboard />
+            }
+          />
+
+                              <Route
+            path="/Registerhp"
+            element={
+              
+                <HospitalRegister />
+            }
+          />
+
+                                        <Route
+            path="/Loginhp"
+            element={
+              
+                <HospitalLogin />
             }
           />
 
