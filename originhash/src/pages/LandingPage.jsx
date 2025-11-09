@@ -123,12 +123,13 @@ const LandingPage = () => {
                 className="absolute top-4 right-4 z-10"
               >
                 <Card className="p-4 shadow-lg">
-                  {advantages.map((advantage, index) => (
-                    <div key={index} className="mb-3 last:mb-0">
-                      <div className="font-bold text-xl text-blue-600">{advantage.number}</div>
-                      <div className="text-sm text-gray-600">{advantage.label}</div>
-                    </div>
-                  ))}
+                  <Card className="p-6 rounded-2xl shadow-sm border border-sky-100 text-center">
+  <div className="text-4xl font-extrabold text-sky-500">700+</div>
+  <div className="text-gray-800 font-medium mt-1">Active Partners</div>
+  <div className="text-yellow-400 text-xl mt-2">★★★★☆</div>
+  <div className="text-gray-500 text-sm mt-1">(4.7 Stars)</div>
+</Card>
+
                 </Card>
               </motion.div>
 
@@ -186,7 +187,7 @@ const LandingPage = () => {
                 <Card className="p-4 shadow-lg">
                   <div className="flex items-center space-x-2">
                     <div className="h-3 w-3 bg-green-500 rounded-full" />
-                    <span className="text-sm font-medium">Easy Appointment Booking</span>
+                    <span className="text-sm font-medium">Find Hospitals near me</span>
                   </div>
                 </Card>
               </motion.div>
@@ -235,15 +236,26 @@ const LandingPage = () => {
             />
             
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                Top <span className="text-blue-500">services</span> we offer
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                In today's fast-paced world, your health deserves the utmost attention and convenience. That's why HealthNet offers a suite of integrated services designed to cater to your healthcare needs digitally.
-              </p>
+              <div className="text-center mb-12">
+  <h2 className="text-[38px] sm:text-[42px] font-extrabold tracking-tight text-gray-900">
+    Top{" "}
+    <span className="bg-gradient-to-r from-sky-400 to-sky-600 bg-clip-text text-transparent">
+      services
+    </span>{" "}
+    we offer
+  </h2>
+
+  <p className="mt-4 text-base sm:text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
+    In today’s fast-paced world, your health deserves the utmost attention and convenience.
+    That’s why <span className="font-semibold text-gray-700">MRGENSEE</span> offers a suite of
+    integrated services designed to cater to your healthcare needs digitally.
+  </p>
+</div>
+
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+           <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-4xl mx-auto">
+
               {/* Service Cards */}
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex flex-col items-center text-center">
@@ -277,7 +289,7 @@ Only trusted hospitals make it to MRGENSEE. Each one is securely onboarded and v
 
               <Card className="p-6 hover:shadow-lg transition-shadow">
                 <div className="flex flex-col items-center text-center">
-                  <img src="/medicine.svg" alt="" className="w-12 h-12 mb-4" />
+                  <img src="/ClipBoardBlue.png" alt="" className="w-12 h-12 mb-4" />
                   <h3 className="text-xl font-semibold mb-2">Real-time Hospital Data</h3>
                   <p className="text-gray-600">
 MRGENSEE shows live updates on bed availability, ER load, and doctor status — so you’re never guessing.
@@ -285,15 +297,7 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                 </div>
               </Card>
 
-              <Card className="p-6 hover:shadow-lg transition-shadow">
-                <div className="flex flex-col items-center text-center">
-                  <img src="/hospitalicon.svg" alt="" className="w-12 h-12 mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">Medicine Refills</h3>
-                  <p className="text-gray-600">
-                    Skip the pharmacy queues and save time - easy-to-ordering medicine refills online.
-                  </p>
-                </div>
-              </Card>
+              
             </div>
           </div>
 
