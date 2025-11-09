@@ -314,9 +314,9 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
     </div>
 
     {/* Right: Heading + Copy + CTA */}
-    <div className="order-1 md:order-2">
+    <div id="about-us" className="order-1 md:order-2">
       <h2 className="text-3xl md:text-[40px] leading-tight font-extrabold mb-5">
-        <span className="text-[#277FFF]">MRGENSEE’s </span>
+        <span className="text-[#277FFF]">MRGENSEE's </span>
         <span className="text-[#277FFF]">Story:</span>
         <span className="text-gray-900 font-semibold"> Get to know us</span>
       </h2>
@@ -509,7 +509,7 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
           </div>
 
           {/* User Testimonials Section (new) */}
-<div className="mb-24">
+<div id="contact-us" className="mb-24">
   <div className="text-center mb-10">
     <h2 className="text-[34px] sm:text-[40px] leading-tight font-semibold tracking-tight">
       <span className="text-[#2491FF]">User Testimonials:</span>

@@ -632,7 +632,7 @@ export default function HospitalRegister() {
         <p className="text-center mt-6 text-gray-600">
           Already have an account?{" "}
           <button
-            onClick={() => navigate("/hospital/login")}
+            onClick={() => navigate("/loginhp")}
             className="text-blue-600 font-semibold hover:underline"
           >
             Login here

@@ -39,12 +39,17 @@ const HPHeader = () => {
                 to={item.path}
                 className="text-gray-600 hover:text-blue-600 transition-colors no-underline"
                 onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.getElementById(item.label.toLowerCase().replace(/\s+/g, '-'));
-                  if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                  } else {
-                    window.location.href = item.path;
+                  if (item.path.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = item.path.substring(1);
+                    const element = document.getElementById(targetId);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      // Add offset for fixed header
+                      window.scrollBy(0, -64); // Adjust this value based on your header height
+                    } else if (window.location.pathname !== '/') {
+                      window.location.href = `/${item.path}`;
+                    }
                   }
                 }}
               >
