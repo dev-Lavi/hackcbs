@@ -361,15 +361,20 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
 
           {/* How Our Platform Works Section */}
           <div className="mb-24">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                How <span className="text-blue-500">our platform</span> works
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Navigating your healthcare journey with HealthNet is seamless. Just follow these steps mentioned
-                below to proceed with your selected services. You can also see our FAQ section for more guidance.
-              </p>
-            </div>
+            <div className="text-center mb-10">
+  <h2 className="text-[34px] sm:text-[40px] leading-tight font-semibold tracking-tight">
+    How{" "}
+    <span className="bg-gradient-to-r from-[#8FD4FF] to-[#2491FF] bg-clip-text text-transparent">
+      our platform
+    </span>{" "}
+    <span className="text-gray-900">works</span>
+  </h2>
+
+  <p className="mt-4 text-[15px] sm:text-base text-gray-500">
+    Navigating your healthcare journey with <span className="font-medium text-gray-700">MRGENSEE</span> is seamless.
+  </p>
+</div>
+
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Steps */}
@@ -383,18 +388,16 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                     1
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Create Your Profile</h3>
+                    <h3 className="text-xl font-semibold mb-2">Emergency Access Panel</h3>
                     <p className="text-gray-600">
-                      Sign up and fill in your medical history securely.
-                      Setting up your profile this way would ensure that
-                      you stay up-to-date with your medical processes.
+                     MRGENSEE instantly scans nearby hospitals for real-time bed availability, ER load, doctor status, and travel time.
                     </p>
                   </div>
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}Z
                   transition={{ delay: 0.2 }}
                   className="flex gap-6"
                 >
@@ -402,11 +405,9 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                     2
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Choose Your Service</h3>
+                    <h3 className="text-xl font-semibold mb-2">Scan & Sort</h3>
                     <p className="text-gray-600">
-                      Select from our range of services and book a
-                      consultation. Booking a consultation with
-                      HealthNet is fairly simple and straight-forward.
+                     It auto-recommends the fastest, verified hospital and provides optimized routing — so help is never out of reach.
                     </p>
                   </div>
                 </motion.div>
@@ -421,11 +422,9 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                     3
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Meet Your Doctor</h3>
+                    <h3 className="text-xl font-semibold mb-2">Real-time Status</h3>
                     <p className="text-gray-600">
-                      Have a virtual consultation with one of our certified
-                      specialists, or go for a physical visit to the doctor in
-                      case you opted for a physical check-up.
+                      Data reliability is ensured by hospitals continuously updating their live status (ER load, bed counts) via a simple dashboard
                     </p>
                   </div>
                 </motion.div>
