@@ -35,23 +35,48 @@ const LandingPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Your <span className="text-blue-600">trusted partner</span>
-                <br />in digital healthcare.
-              </h1>
-              
-              <p className="text-gray-600 mb-8 text-lg">
-                Experience the best medical care at your fingertips. Connect with certified doctors, 
-                manage prescriptions and schedule appointments with ease. Ready to 
-                take control of your health?
-              </p>
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
+  Smart <span className="text-blue-500">Emergency Access</span>,<br />Simplified.
+</h1>
 
-              <Button 
-                size="lg" 
-                className="bg-blue-500 hover:bg-blue-600 mb-12"
-              >
-                Book an appointment →
-              </Button>
+<div className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed">
+  <p className="font-semibold text-blue-600 mb-2">
+    Empowering Emergency Response.
+  </p>
+  <p className="text-gray-600">
+    MRGENSEE helps patients and families locate the nearest verified hospitals
+    with live updates on ER load, bed availability, and doctor readiness.
+  </p>
+  <p className="mt-2">
+    <span className="text-blue-600 font-medium">Get connected</span> instantly, save time, and reach care when it matters most.
+  </p>
+</div>
+
+              <a
+  href="/emergency"
+  className="
+    inline-flex items-center
+    rounded-2xl px-7 md:px-10 py-4 md:py-5
+    text-white text-xl md:text-2xl font-semibold
+    bg-gradient-to-r from-[#FFA1A1] via-[#FF5C4D] to-[#E30613]
+    shadow-[0_10px_30px_rgba(227,6,19,0.30)]
+    hover:shadow-[0_16px_36px_rgba(227,6,19,0.40)]
+    transition-all duration-200
+    mb-12 no-underline
+  "
+>
+  <span className="mr-3">Emergency!</span>
+  <svg
+    className="w-6 h-6 translate-x-0 transition-transform group-hover:translate-x-1"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14M13 5l7 7-7 7" />
+  </svg>
+</a>
+
+
 
               {/* Trusted By Section */}
               <div>
