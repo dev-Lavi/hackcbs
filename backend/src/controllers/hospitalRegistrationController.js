@@ -3,17 +3,14 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// Hospital Registration Flow
-exports.registerHospital = async (req, res) => {
+// Hospital Registration Controller
+const registerHospital = async (req, res) => {
   try {
     const {
-      // Hospital Admin Info
       adminName,
       adminEmail,
       adminPhone,
       password,
-      
-      // Hospital Info
       hospitalName,
       registrationNumber,
       address,
@@ -27,24 +24,29 @@ exports.registerHospital = async (req, res) => {
       email,
       facilities,
       totalBeds,
-      ambulances,
-      
-      // Verification Documents
-      medicalLicense,
-      hospitalRegistrationCertificate,
-      adminIdProof
+      ambulances
     } = req.body;
 
-    // 1. Check if hospital registration number already exists
-    const existingHospital = await Hospital.findOne({ registrationNumber });
-    if (existingHospital) {
+    // Validation - UPDATED
+    if (!adminName || !adminEmail || !password || !hospitalName || !address || !city || !state || !contactNumber || !emergencyNumber || !email || !longitude || !latitude) {
       return res.status(400).json({
         success: false,
-        message: 'Hospital with this registration number already exists'
+        message: 'Please provide all required fields: adminName, adminEmail, password, hospitalName, address, city, state, contactNumber, emergencyNumber, email, longitude, latitude'
       });
     }
 
-    // 2. Check if admin email already exists
+    // Check if hospital already exists
+    if (registrationNumber) {
+      const existingHospital = await Hospital.findOne({ registrationNumber });
+      if (existingHospital) {
+        return res.status(400).json({
+          success: false,
+          message: 'Hospital with this registration number already exists'
+        });
+      }
+    }
+
+    // Check if admin email already exists
     const existingUser = await User.findOne({ email: adminEmail });
     if (existingUser) {
       return res.status(400).json({
@@ -53,10 +55,10 @@ exports.registerHospital = async (req, res) => {
       });
     }
 
-    // 3. Create hospital (with pending status)
+    // Create hospital - UPDATED to use correct field names
     const hospital = await Hospital.create({
-      name: hospitalName,
-      registrationNumber,
+      name: hospitalName,  // Changed from 'hospitalName' to match model
+      registrationNumber: registrationNumber || `HOSP-${Date.now()}`,
       address,
       city,
       state,
@@ -85,10 +87,10 @@ exports.registerHospital = async (req, res) => {
         total: 0,
         available: 0
       },
-      isActive: false // Inactive until verified by system admin
+      isActive: true
     });
 
-    // 4. Create hospital admin user
+    // Create hospital admin user
     const hashedPassword = await bcrypt.hash(password, 12);
     
     const admin = await User.create({
@@ -98,29 +100,33 @@ exports.registerHospital = async (req, res) => {
       password: hashedPassword,
       role: 'hospital_admin',
       hospitalId: hospital._id,
-      registrationStatus: 'pending',
-      verificationDocuments: {
-        medicalLicense,
-        hospitalRegistration: hospitalRegistrationCertificate,
-        idProof: adminIdProof
-      },
-      isVerified: false
+      isVerified: true
     });
 
-    // 5. Send verification email (implement this)
-    // await sendVerificationEmail(adminEmail, admin._id);
-
-    // 6. Notify system admins for approval (implement this)
-    // await notifySystemAdmins(hospital._id);
+    // Generate JWT token
+    const token = jwt.sign(
+      { id: admin._id, role: admin.role, hospitalId: hospital._id },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRE || '7d' }
+    );
 
     res.status(201).json({
       success: true,
-      message: 'Hospital registration submitted successfully. Your application is under review and you will be notified within 2-3 business days.',
+      message: 'Hospital registered successfully! You can now start using the system.',
+      token,
       data: {
-        hospitalId: hospital._id,
-        adminId: admin._id,
-        registrationNumber: hospital.registrationNumber,
-        status: 'pending_verification'
+        user: {
+          id: admin._id,
+          name: admin.name,
+          email: admin.email,
+          role: admin.role
+        },
+        hospital: {
+          id: hospital._id,
+          name: hospital.name,
+          registrationNumber: hospital.registrationNumber,
+          isActive: hospital.isActive
+        }
       }
     });
 
@@ -134,10 +140,18 @@ exports.registerHospital = async (req, res) => {
   }
 };
 
+
 // Hospital Admin Login
-exports.loginHospitalAdmin = async (req, res) => {
+const loginHospitalAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide email and password'
+      });
+    }
 
     // Find user with password field
     const user = await User.findOne({ email }).select('+password');
@@ -145,7 +159,7 @@ exports.loginHospitalAdmin = async (req, res) => {
     if (!user) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials'
+        message: 'Invalid email or password'
       });
     }
 
@@ -155,22 +169,7 @@ exports.loginHospitalAdmin = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).json({
         success: false,
-        message: 'Invalid credentials'
-      });
-    }
-
-    // Check if account is verified
-    if (user.registrationStatus === 'pending') {
-      return res.status(403).json({
-        success: false,
-        message: 'Your account is pending verification. Please wait for admin approval.'
-      });
-    }
-
-    if (user.registrationStatus === 'rejected') {
-      return res.status(403).json({
-        success: false,
-        message: 'Your registration has been rejected. Please contact support.'
+        message: 'Invalid email or password'
       });
     }
 
@@ -196,12 +195,15 @@ exports.loginHospitalAdmin = async (req, res) => {
         hospital: {
           id: hospital._id,
           name: hospital.name,
+          address: hospital.address,
+          city: hospital.city,
           isActive: hospital.isActive
         }
       }
     });
 
   } catch (error) {
+    console.error('Login error:', error);
     res.status(500).json({
       success: false,
       message: 'Login error',
@@ -210,95 +212,60 @@ exports.loginHospitalAdmin = async (req, res) => {
   }
 };
 
-// System Admin: Approve Hospital Registration
-exports.approveHospitalRegistration = async (req, res) => {
+// Get current logged-in hospital admin profile
+const getMyProfile = async (req, res) => {
   try {
-    const { hospitalId } = req.params;
-
-    // Update hospital status
-    const hospital = await Hospital.findByIdAndUpdate(
-      hospitalId,
-      { isActive: true },
-      { new: true }
-    );
-
-    // Update admin user status
-    await User.findOneAndUpdate(
-      { hospitalId: hospitalId, role: 'hospital_admin' },
-      { 
-        registrationStatus: 'approved',
-        isVerified: true
-      }
-    );
-
-    // Send approval email (implement this)
-    // await sendApprovalEmail(hospital.email);
+    const user = await User.findById(req.user.id).populate('hospitalId');
 
     res.status(200).json({
       success: true,
-      message: 'Hospital registration approved',
+      data: user
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Error fetching profile',
+      error: error.message
+    });
+  }
+};
+
+// Update hospital details
+const updateHospitalDetails = async (req, res) => {
+  try {
+    const hospitalId = req.user.hospitalId;
+    const updates = req.body;
+
+    // Don't allow updating certain fields
+    delete updates._id;
+    delete updates.registrationNumber;
+
+    const hospital = await Hospital.findByIdAndUpdate(
+      hospitalId,
+      updates,
+      { new: true, runValidators: true }
+    );
+
+    res.status(200).json({
+      success: true,
+      message: 'Hospital details updated successfully',
       data: hospital
     });
 
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: 'Error approving registration',
+      message: 'Error updating hospital details',
       error: error.message
     });
   }
 };
 
-// System Admin: Reject Hospital Registration
-exports.rejectHospitalRegistration = async (req, res) => {
-  try {
-    const { hospitalId } = req.params;
-    const { reason } = req.body;
-
-    // Update admin user status
-    await User.findOneAndUpdate(
-      { hospitalId: hospitalId, role: 'hospital_admin' },
-      { 
-        registrationStatus: 'rejected'
-      }
-    );
-
-    // Send rejection email with reason (implement this)
-    // await sendRejectionEmail(hospital.email, reason);
-
-    res.status(200).json({
-      success: true,
-      message: 'Hospital registration rejected'
-    });
-
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Error rejecting registration',
-      error: error.message
-    });
-  }
-};
-
-// Get pending registrations (for system admin)
-exports.getPendingRegistrations = async (req, res) => {
-  try {
-    const pendingAdmins = await User.find({
-      role: 'hospital_admin',
-      registrationStatus: 'pending'
-    }).populate('hospitalId');
-
-    res.status(200).json({
-      success: true,
-      count: pendingAdmins.length,
-      data: pendingAdmins
-    });
-
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Error fetching pending registrations',
-      error: error.message
-    });
-  }
+// Export all functions
+module.exports = {
+  registerHospital,
+  loginHospitalAdmin,
+  getMyProfile,
+  updateHospitalDetails
 };

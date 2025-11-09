@@ -12,6 +12,7 @@ const errorHandler = require('./middleware/errorHandler');
 const hospitalRoutes = require('./routes/hospital');
 const bedRoutes = require('./routes/bed');
 const emergencyRoutes = require('./routes/emergency');
+const patientAdmissionRoutes = require('./routes/patientAdmission');
 const hospitalRegistrationRoutes = require('./routes/hospitalRegistration');
 
 // Initialize app
@@ -41,6 +42,8 @@ app.use('/api/hospitals', hospitalRoutes);
 app.use('/api/beds', bedRoutes);
 app.use('/api/emergency', emergencyRoutes);
 app.use('/api/hospital-registration', hospitalRegistrationRoutes);
+app.use('/api/admission', patientAdmissionRoutes);
+
 
 // Health check
 app.get('/health', (req, res) => {

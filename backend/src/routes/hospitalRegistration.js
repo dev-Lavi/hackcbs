@@ -7,26 +7,8 @@ const { protect, authorize } = require('../middleware/auth');
 router.post('/register', hospitalRegistrationController.registerHospital);
 router.post('/login', hospitalRegistrationController.loginHospitalAdmin);
 
-// System admin only routes
-router.get(
-  '/pending', 
-  protect, 
-  authorize('system_admin'), 
-  hospitalRegistrationController.getPendingRegistrations
-);
-
-router.patch(
-  '/:hospitalId/approve', 
-  protect, 
-  authorize('system_admin'), 
-  hospitalRegistrationController.approveHospitalRegistration
-);
-
-router.patch(
-  '/:hospitalId/reject', 
-  protect, 
-  authorize('system_admin'), 
-  hospitalRegistrationController.rejectHospitalRegistration
-);
+// Protected routes (requires authentication)
+router.get('/profile', protect, hospitalRegistrationController.getMyProfile);
+router.patch('/update', protect, authorize('hospital_admin'), hospitalRegistrationController.updateHospitalDetails);
 
 module.exports = router;

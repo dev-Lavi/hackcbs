@@ -40,12 +40,23 @@ const patientSchema = new mongoose.Schema({
       ref: 'Bed'
     },
     admissionDate: Date,
-    dischargeDate: Date
+    dischargeDate: Date,
+    // NEW FIELDS ADDED
+    admissionReason: String,
+    symptoms: [String],
+    severity: {
+      type: String,
+      enum: ['critical', 'severe', 'moderate', 'mild']
+    },
+    expectedStayDuration: Number, // in hours
+    dischargeNotes: String
   },
   medicalHistory: {
     allergies: [String],
     chronicDiseases: [String],
-    currentMedications: [String]
+    currentMedications: [String],
+    // NEW FIELD ADDED
+    previousSurgeries: [String]
   },
   status: {
     type: String,
