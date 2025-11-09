@@ -124,8 +124,8 @@ const LandingPage = () => {
               >
                 <Card className="p-4 shadow-lg">
                   <Card className=" width-[50%]p-6 rounded-2xl shadow-sm border border-sky-100 text-center">
-  <div className="text-4xl font-extrabold text-sky-500">700+</div>
-  <div className="text-gray-800 font-medium mt-1">Active Partners</div>
+  <div className="text-3xl font-extrabold text-sky-500">700+</div>
+  <div className="text-gray-800 font-small pl-2 pr-2 mt-1">Active Partners</div>
   <div className="text-yellow-400 text-xl mt-2">★★★★☆</div>
   <div className="text-gray-500 text-sm mt-1">(4.7 Stars)</div>
 </Card>
