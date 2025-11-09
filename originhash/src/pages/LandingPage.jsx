@@ -504,92 +504,100 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
             </div>
           </div>
 
-          {/* Patient Testimonials Section */}
-          <div className="mb-24">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                <span className="text-blue-500">Patient Testimonials:</span>
-                <br />Hear from Those We've Cared For
-              </h2>
-              <p className="text-gray-600">
-                Discover the difference we make through the voices of those we've served!
-              </p>
-            </div>
+          {/* User Testimonials Section (new) */}
+<div className="mb-24">
+  <div className="text-center mb-10">
+    <h2 className="text-[34px] sm:text-[40px] leading-tight font-semibold tracking-tight">
+      <span className="text-[#2491FF]">User Testimonials:</span>
+      <br />
+      Hear from Those We’ve Cared For
+    </h2>
+    <p className="mt-3 text-[15px] sm:text-base text-gray-500">
+      Discover the difference we make through the voices of those we’ve served.
+    </p>
+  </div>
 
-            {/* Reviews Grid */}
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer1.svg" alt="Linda A." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "After my knee surgery, the convenience of online consultations made my recovery smoother than I could have imagined."
-                    </p>
-                    <p className="font-semibold">- Arjun M.</p>
-                  </div>
-                </div>
-              </Card>
+  {/* Top two quotes */}
+  <div className="grid md:grid-cols-2 gap-8 mb-12">
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer1.svg" alt="Arjun M." className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “During a road accident, finding an open emergency ward felt impossible. MRGENSEE guided us
+            straight to a hospital that had space — it honestly saved my father’s life.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">– Arjun M.</p>
+        </div>
+      </div>
+    </Card>
 
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer2.svg" alt="Henry B." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "Managing chronic conditions like diabetes requires a lot of vigilance, but the medicine refill system has simplified my life."
-                    </p>
-                    <p className="font-semibold">- Riya K.</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer2.svg" alt="Riya K." className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “Knowing which hospital is ready for me before I even leave home gives peace of mind.
+            I wish every city had something like this.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">– Riya K.</p>
+        </div>
+      </div>
+    </Card>
+  </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">10,000+</div>
-                <div className="text-gray-600">Successful Consultations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">2,500+</div>
-                <div className="text-gray-600">Healthcare Professionals</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">98%</div>
-                <div className="text-gray-600">Patient Satisfaction Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">200+</div>
-                <div className="text-gray-600">Top Specialists</div>
-              </div>
-            </div>
+  {/* Stats row */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-14">
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">10,000+</div>
+      <div className="mt-1 text-gray-600">Emergency routes generated</div>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">200+</div>
+      <div className="mt-1 text-gray-600">Verified Hospitals Onboarded</div>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">98%</div>
+      <div className="mt-1 text-gray-600">Positive feedback</div>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">2x Faster</div>
+      <div className="mt-1 text-gray-600">Emergency Room ETA</div>
+    </div>
+  </div>
 
-            {/* More Reviews */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer3.svg" alt="Joshua T." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "The prescription refill system is a game-changer for managing my diabetes. It's really efficient and completely hassle-free!"
-                    </p>
-                    <p className="font-semibold">- Dr. Neha S., Emergency Coordinator.</p>
-                  </div>
-                </div>
-              </Card>
+  {/* Bottom two quotes */}
+  <div className="grid md:grid-cols-2 gap-8">
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer3.svg" alt="Dr. Neha S." className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “Our hospital joined MRGENSEE to update bed and ER availability in real time. It’s reduced
+            phone inquiries by half and helped us manage patient flow smoothly.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">
+            – Dr. Neha S., Emergency Coordinator
+          </p>
+        </div>
+      </div>
+    </Card>
 
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer4.svg" alt="Samantha K." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "Finding a doctor who really understands all of my health needs has never been easier. This platform has changed my life!"
-                    </p>
-                    <p className="font-semibold">– CityCare Hospital Admin.</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer4.svg" alt="CityCare Hospital Admin" className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “Before MRGENSEE, patients often reached us only to be redirected elsewhere. Now they arrive
+            knowing our ER status already — it’s efficient and humane.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">– CityCare Hospital Admin</p>
+        </div>
+      </div>
+    </Card>
+  </div>
+</div>
+
 
         </div>
       </main>
