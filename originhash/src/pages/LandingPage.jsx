@@ -297,29 +297,67 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
             </div>
           </div>
 
-          {/* Get to Know Us Section */}
-          <div className="bg-white rounded-xl p-8 shadow-sm mb-24">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <h2 className="text-3xl font-bold mb-4">
-                  HealthNet's <span className="text-blue-500">Story:</span> Get to know us
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  HealthNet is more than just an online medical service; it's a movement towards accessible, efficient, and compassionate healthcare for all. Founded by a team of visionary doctors, healthcare professionals, and technology experts, we are driven by the mission to deliver exceptional medical care directly to you, no matter where you are. Our platform is built on the pillars of trust, innovation, and patient centricity, ensuring that every interaction is personalized and every treatment plan is tailored to your unique needs. With a network of expert practitioners and state-of-the-art medical facilities, comprehensive care that's just a click away.
-                </p>
-                <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-                  Learn more about us
-                </Button>
-              </div>
-              <div className=" w-[80%] h-auto order-1 md:order-2">
-                <img 
-                  src="/hospitalrush.png" 
-                  alt="Our Medical Team" 
-                  className="rounded-lg shadow-lg w-full"
-                />
-              </div>
-            </div>
-          </div>
+          {/* Get to know us – Hackathon Origin Edition */}
+<div className="rounded-3xl bg-white/80 shadow-[0_20px_60px_rgba(0,0,0,0.06)] ring-1 ring-black/5 mb-24">
+  <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center p-6 md:p-10">
+    {/* Left: Image */}
+    <div className="order-2 md:order-1">
+      <img
+        src="/hospitalrush.png"
+        alt="MRGENSEE emergency team"
+        className="w-full rounded-2xl object-cover shadow-lg"
+      />
+    </div>
+
+    {/* Right: Heading + Copy + CTA */}
+    <div className="order-1 md:order-2">
+      <h2 className="text-3xl md:text-[40px] leading-tight font-extrabold mb-5">
+        <span className="text-[#277FFF]">MRGENSEE’s </span>
+        <span className="text-[#277FFF]">Story:</span>
+        <span className="text-gray-900 font-semibold"> Get to know us</span>
+      </h2>
+
+      <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-8">
+        MRGENSEE was born during a hackathon — an idea fueled by the regular
+        shortcomings of India’s emergency response infrastructure. We witnessed
+        how fragmented data, delayed routing, and poor hospital coordination
+        often cost people precious time in moments of crisis. Determined to
+        change that, our team built MRGENSEE as a smarter, faster, and more
+        transparent way to connect patients to verified hospitals with live ER
+        and bed availability updates. Every second counts, and MRGENSEE ensures
+        that every route leads to care — not confusion.
+      </p>
+
+      <a
+        href="/about"
+        className="
+          inline-flex items-center justify-center
+          h-12 md:h-14 px-6 md:px-8 rounded-2xl
+          text-white text-base md:text-lg font-semibold
+          bg-gradient-to-r from-[#69B6FF] via-[#3B8DFF] to-[#277FFF]
+          shadow-[0_12px_30px_rgba(39,127,255,0.35)]
+          hover:shadow-[0_16px_36px_rgba(39,127,255,0.45)]
+          transition-all
+        "
+      >
+        Learn more about us
+        <svg
+          className="ml-3 w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
 
           {/* How Our Platform Works Section */}
           <div className="mb-24">
