@@ -123,7 +123,7 @@ export default function HospitalRegister() {
       if (data.success) {
         localStorage.setItem("token", data.token);
         alert("✅ Hospital registered successfully!");
-        navigate("/admin/admit-patient");
+        navigate("/admin/loginhp");
       } else {
         setError(data.message || "Registration failed");
       }
