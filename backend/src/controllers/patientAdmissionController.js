@@ -1,8 +1,7 @@
 const Patient = require('../models/Patient');
-const Bed = require('../models/Bed');
 const Hospital = require('../models/Hospital');
 
-// Admin admits a patient and assigns bed
+// Admin admits a patient without bed assignment
 const admitPatient = async (req, res) => {
   try {
     const {
@@ -23,9 +22,7 @@ const admitPatient = async (req, res) => {
       symptoms,
       severity,
       
-      // Bed Assignment
-      bedId,
-      bedType,
+      // Expected Stay Duration (optional)
       expectedStayDuration
     } = req.body;
 
@@ -39,31 +36,7 @@ const admitPatient = async (req, res) => {
       });
     }
 
-    // Validate bed exists and is available
-    const bed = await Bed.findById(bedId);
-    
-    if (!bed) {
-      return res.status(404).json({
-        success: false,
-        message: 'Bed not found'
-      });
-    }
-
-    if (bed.hospitalId.toString() !== hospitalId.toString()) {
-      return res.status(403).json({
-        success: false,
-        message: 'Bed does not belong to your hospital'
-      });
-    }
-
-    if (bed.status !== 'available') {
-      return res.status(400).json({
-        success: false,
-        message: `Bed is currently ${bed.status}. Please select an available bed.`
-      });
-    }
-
-    // Create patient record
+    // Create patient record without bed assignment
     const patient = await Patient.create({
       name,
       age,
@@ -75,7 +48,6 @@ const admitPatient = async (req, res) => {
       medicalHistory,
       admittedTo: {
         hospitalId,
-        bedId,
         admissionDate: new Date(),
         admissionReason,
         symptoms,
@@ -85,48 +57,18 @@ const admitPatient = async (req, res) => {
       status: 'admitted'
     });
 
-    // Update bed status to occupied
-    bed.status = 'occupied';
-    bed.currentPatientId = patient._id;
-    bed.occupiedAt = new Date();
-    
-    if (expectedStayDuration) {
-      const releaseDate = new Date();
-      releaseDate.setHours(releaseDate.getHours() + expectedStayDuration);
-      bed.expectedReleaseTime = releaseDate;
-    }
-    
-    await bed.save();
-
-    // Decrease available bed count in hospital
-    await Hospital.findByIdAndUpdate(hospitalId, {
-      $inc: { [`availableBeds.${bedType}`]: -1 }
-    });
-
-    // Emit real-time update via Socket.IO
+    // Emit real-time update via Socket.IO if applicable
     if (req.app.get('io')) {
-      req.app.get('io').emit('bed:occupied', {
+      req.app.get('io').emit('patient:admitted', {
         hospitalId,
-        bedId: bed._id,
-        bedType: bed.bedType,
         patientId: patient._id
       });
     }
 
     res.status(201).json({
       success: true,
-      message: 'Patient admitted successfully',
-      data: {
-        patient,
-        bed: {
-          id: bed._id,
-          bedNumber: bed.bedNumber,
-          bedType: bed.bedType,
-          floor: bed.floor,
-          ward: bed.ward,
-          status: bed.status
-        }
-      }
+      message: 'Patient admitted successfully without bed assignment',
+      data: patient
     });
 
   } catch (error) {
