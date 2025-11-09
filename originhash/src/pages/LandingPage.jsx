@@ -35,23 +35,54 @@ const LandingPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Your <span className="text-blue-600">trusted partner</span>
-                <br />in digital healthcare.
-              </h1>
-              
-              <p className="text-gray-600 mb-8 text-lg">
-                Experience the best medical care at your fingertips. Connect with certified doctors, 
-                manage prescriptions and schedule appointments with ease. Ready to 
-                take control of your health?
-              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+  <span className="sm:whitespace-nowrap">
+    Smart <span className="text-blue-500">Emergency Access</span>,
+  </span>
+  <br className="hidden sm:block" />
+  Simplified.
+</h1>
 
-              <Button 
-                size="lg" 
-                className="bg-blue-500 hover:bg-blue-600 mb-12"
-              >
-                Book an appointment →
-              </Button>
+
+
+<div className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed">
+  <p className="font-semibold text-blue-600 mb-2">
+    Empowering Emergency Response.
+  </p>
+  <p className="text-gray-600">
+    MRGENSEE helps patients and families locate the nearest verified hospitals
+    with live updates on ER load, bed availability, and doctor readiness.
+  </p>
+  <p className="mt-2">
+    <span className="text-blue-600 font-medium">Get connected</span> instantly, save time, and reach care when it matters most.
+  </p>
+</div>
+
+              <a
+  href="/emergency"
+  className="
+    inline-flex items-center
+    rounded-2xl px-7 md:px-10 py-4 md:py-5
+    text-white text-xl md:text-2xl font-semibold
+    bg-gradient-to-r from-[#FFA1A1] via-[#FF5C4D] to-[#E30613]
+    shadow-[0_10px_30px_rgba(227,6,19,0.30)]
+    hover:shadow-[0_16px_36px_rgba(227,6,19,0.40)]
+    transition-all duration-200
+    mb-12 no-underline
+  "
+>
+  <span className="mr-3">Emergency!</span>
+  <svg
+    className="w-6 h-6 translate-x-0 transition-transform group-hover:translate-x-1"
+    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14M13 5l7 7-7 7" />
+  </svg>
+</a>
+
+
 
               {/* Trusted By Section */}
               <div>
@@ -266,41 +297,84 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
             </div>
           </div>
 
-          {/* Get to Know Us Section */}
-          <div className="bg-white rounded-xl p-8 shadow-sm mb-24">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <h2 className="text-3xl font-bold mb-4">
-                  HealthNet's <span className="text-blue-500">Story:</span> Get to know us
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  HealthNet is more than just an online medical service; it's a movement towards accessible, efficient, and compassionate healthcare for all. Founded by a team of visionary doctors, healthcare professionals, and technology experts, we are driven by the mission to deliver exceptional medical care directly to you, no matter where you are. Our platform is built on the pillars of trust, innovation, and patient centricity, ensuring that every interaction is personalized and every treatment plan is tailored to your unique needs. With a network of expert practitioners and state-of-the-art medical facilities, comprehensive care that's just a click away.
-                </p>
-                <Button size="lg" className="bg-blue-500 hover:bg-blue-600">
-                  Learn more about us
-                </Button>
-              </div>
-              <div className=" w-[80%] h-auto order-1 md:order-2">
-                <img 
-                  src="/hospitalrush.png" 
-                  alt="Our Medical Team" 
-                  className="rounded-lg shadow-lg w-full"
-                />
-              </div>
-            </div>
-          </div>
+          {/* Get to know us – Hackathon Origin Edition */}
+<div className="rounded-3xl bg-white/80 shadow-[0_20px_60px_rgba(0,0,0,0.06)] ring-1 ring-black/5 mb-24">
+  <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center p-6 md:p-10">
+    {/* Left: Image */}
+    <div className="order-2 md:order-1">
+      <img
+        src="/hospitalrush.png"
+        alt="MRGENSEE emergency team"
+        className="w-full rounded-2xl object-cover shadow-lg"
+      />
+    </div>
+
+    {/* Right: Heading + Copy + CTA */}
+    <div className="order-1 md:order-2">
+      <h2 className="text-3xl md:text-[40px] leading-tight font-extrabold mb-5">
+        <span className="text-[#277FFF]">MRGENSEE’s </span>
+        <span className="text-[#277FFF]">Story:</span>
+        <span className="text-gray-900 font-semibold"> Get to know us</span>
+      </h2>
+
+      <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-8">
+        MRGENSEE was born during a hackathon — an idea fueled by the regular
+        shortcomings of India’s emergency response infrastructure. We witnessed
+        how fragmented data, delayed routing, and poor hospital coordination
+        often cost people precious time in moments of crisis. Determined to
+        change that, our team built MRGENSEE as a smarter, faster, and more
+        transparent way to connect patients to verified hospitals with live ER
+        and bed availability updates. Every second counts, and MRGENSEE ensures
+        that every route leads to care — not confusion.
+      </p>
+
+      <a
+        href="/about"
+        className="
+          inline-flex items-center justify-center
+          h-12 md:h-14 px-6 md:px-8 rounded-2xl
+          text-white text-base md:text-lg font-semibold
+          bg-gradient-to-r from-[#69B6FF] via-[#3B8DFF] to-[#277FFF]
+          shadow-[0_12px_30px_rgba(39,127,255,0.35)]
+          hover:shadow-[0_16px_36px_rgba(39,127,255,0.45)]
+          transition-all
+        "
+      >
+        Learn more about us
+        <svg
+          className="ml-3 w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M5 12h14M13 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
 
           {/* How Our Platform Works Section */}
           <div className="mb-24">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                How <span className="text-blue-500">our platform</span> works
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Navigating your healthcare journey with HealthNet is seamless. Just follow these steps mentioned
-                below to proceed with your selected services. You can also see our FAQ section for more guidance.
-              </p>
-            </div>
+            <div className="text-center mb-10">
+  <h2 className="text-[34px] sm:text-[40px] leading-tight font-semibold tracking-tight">
+    How{" "}
+    <span className="bg-gradient-to-r from-[#8FD4FF] to-[#2491FF] bg-clip-text text-transparent">
+      our platform
+    </span>{" "}
+    <span className="text-gray-900">works</span>
+  </h2>
+
+  <p className="mt-4 text-[15px] sm:text-base text-gray-500">
+    Navigating your healthcare journey with <span className="font-medium text-gray-700">MRGENSEE</span> is seamless.
+  </p>
+</div>
+
 
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Steps */}
@@ -314,18 +388,16 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                     1
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Create Your Profile</h3>
+                    <h3 className="text-xl font-semibold mb-2">Emergency Access Panel</h3>
                     <p className="text-gray-600">
-                      Sign up and fill in your medical history securely.
-                      Setting up your profile this way would ensure that
-                      you stay up-to-date with your medical processes.
+                     MRGENSEE instantly scans nearby hospitals for real-time bed availability, ER load, doctor status, and travel time.
                     </p>
                   </div>
                 </motion.div>
 
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}Z
                   transition={{ delay: 0.2 }}
                   className="flex gap-6"
                 >
@@ -333,11 +405,9 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                     2
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Choose Your Service</h3>
+                    <h3 className="text-xl font-semibold mb-2">Scan & Sort</h3>
                     <p className="text-gray-600">
-                      Select from our range of services and book a
-                      consultation. Booking a consultation with
-                      HealthNet is fairly simple and straight-forward.
+                     It auto-recommends the fastest, verified hospital and provides optimized routing — so help is never out of reach.
                     </p>
                   </div>
                 </motion.div>
@@ -352,11 +422,9 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
                     3
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">Meet Your Doctor</h3>
+                    <h3 className="text-xl font-semibold mb-2">Real-time Status</h3>
                     <p className="text-gray-600">
-                      Have a virtual consultation with one of our certified
-                      specialists, or go for a physical visit to the doctor in
-                      case you opted for a physical check-up.
+                      Data reliability is ensured by hospitals continuously updating their live status (ER load, bed counts) via a simple dashboard
                     </p>
                   </div>
                 </motion.div>
@@ -436,92 +504,100 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
             </div>
           </div>
 
-          {/* Patient Testimonials Section */}
-          <div className="mb-24">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">
-                <span className="text-blue-500">Patient Testimonials:</span>
-                <br />Hear from Those We've Cared For
-              </h2>
-              <p className="text-gray-600">
-                Discover the difference we make through the voices of those we've served!
-              </p>
-            </div>
+          {/* User Testimonials Section (new) */}
+<div className="mb-24">
+  <div className="text-center mb-10">
+    <h2 className="text-[34px] sm:text-[40px] leading-tight font-semibold tracking-tight">
+      <span className="text-[#2491FF]">User Testimonials:</span>
+      <br />
+      Hear from Those We’ve Cared For
+    </h2>
+    <p className="mt-3 text-[15px] sm:text-base text-gray-500">
+      Discover the difference we make through the voices of those we’ve served.
+    </p>
+  </div>
 
-            {/* Reviews Grid */}
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer1.svg" alt="Linda A." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "After my knee surgery, the convenience of online consultations made my recovery smoother than I could have imagined."
-                    </p>
-                    <p className="font-semibold">- Arjun M.</p>
-                  </div>
-                </div>
-              </Card>
+  {/* Top two quotes */}
+  <div className="grid md:grid-cols-2 gap-8 mb-12">
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer1.svg" alt="Arjun M." className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “During a road accident, finding an open emergency ward felt impossible. MRGENSEE guided us
+            straight to a hospital that had space — it honestly saved my father’s life.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">– Arjun M.</p>
+        </div>
+      </div>
+    </Card>
 
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer2.svg" alt="Henry B." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "Managing chronic conditions like diabetes requires a lot of vigilance, but the medicine refill system has simplified my life."
-                    </p>
-                    <p className="font-semibold">- Riya K.</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer2.svg" alt="Riya K." className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “Knowing which hospital is ready for me before I even leave home gives peace of mind.
+            I wish every city had something like this.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">– Riya K.</p>
+        </div>
+      </div>
+    </Card>
+  </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">10,000+</div>
-                <div className="text-gray-600">Successful Consultations</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">2,500+</div>
-                <div className="text-gray-600">Healthcare Professionals</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">98%</div>
-                <div className="text-gray-600">Patient Satisfaction Rate</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-500 mb-2">200+</div>
-                <div className="text-gray-600">Top Specialists</div>
-              </div>
-            </div>
+  {/* Stats row */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-14">
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">10,000+</div>
+      <div className="mt-1 text-gray-600">Emergency routes generated</div>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">200+</div>
+      <div className="mt-1 text-gray-600">Verified Hospitals Onboarded</div>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">98%</div>
+      <div className="mt-1 text-gray-600">Positive feedback</div>
+    </div>
+    <div className="text-center">
+      <div className="text-4xl font-extrabold text-sky-500">2x Faster</div>
+      <div className="mt-1 text-gray-600">Emergency Room ETA</div>
+    </div>
+  </div>
 
-            {/* More Reviews */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer3.svg" alt="Joshua T." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "The prescription refill system is a game-changer for managing my diabetes. It's really efficient and completely hassle-free!"
-                    </p>
-                    <p className="font-semibold">- Dr. Neha S., Emergency Coordinator.</p>
-                  </div>
-                </div>
-              </Card>
+  {/* Bottom two quotes */}
+  <div className="grid md:grid-cols-2 gap-8">
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer3.svg" alt="Dr. Neha S." className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “Our hospital joined MRGENSEE to update bed and ER availability in real time. It’s reduced
+            phone inquiries by half and helped us manage patient flow smoothly.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">
+            – Dr. Neha S., Emergency Coordinator
+          </p>
+        </div>
+      </div>
+    </Card>
 
-              <Card className="p-6">
-                <div className="flex gap-4">
-                  <img src="/reviewer4.svg" alt="Samantha K." className="w-16 h-16 rounded-full object-cover" />
-                  <div>
-                    <p className="text-gray-600 mb-2">
-                      "Finding a doctor who really understands all of my health needs has never been easier. This platform has changed my life!"
-                    </p>
-                    <p className="font-semibold">– CityCare Hospital Admin.</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
-          </div>
+    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex gap-4">
+        <img src="/reviewer4.svg" alt="CityCare Hospital Admin" className="w-16 h-16 rounded-full object-cover" />
+        <div>
+          <p className="text-gray-700">
+            “Before MRGENSEE, patients often reached us only to be redirected elsewhere. Now they arrive
+            knowing our ER status already — it’s efficient and humane.”
+          </p>
+          <p className="mt-3 font-semibold text-gray-800">– CityCare Hospital Admin</p>
+        </div>
+      </div>
+    </Card>
+  </div>
+</div>
+
 
         </div>
       </main>
