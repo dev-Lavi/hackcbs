@@ -27,8 +27,8 @@ const LandingPage = () => {
       
       <main className="pt-24">
         {/* Hero Section */}
-        <div className="container mx-auto px-4 py-12 relative">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 py-8 md:py-12 relative">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Column - Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -110,7 +110,7 @@ const LandingPage = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative"
+              className="relative hidden md:block"
             >
               {/* Blue Background */}
               <div className="absolute inset-0 bg-blue-500 rounded-full opacity-10 blur-3xl" />
@@ -436,7 +436,7 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
 
               {/* Doctor Image with Gradient Background */}
 {/* Doctor Image with Logo Overlay */}
-<div className="relative">
+<div className="relative hidden md:block">
   {/* Background with subtle gradient */}
   <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-blue-200/30 rounded-3xl" />
   
@@ -523,8 +523,8 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
 
   {/* Top two quotes */}
   <div className="grid md:grid-cols-2 gap-8 mb-12">
-    <Card className="p-6 border border-sky-200/70 rounded-2xl shadow-sm">
-      <div className="flex gap-4">
+    <Card className="p-4 md:p-6 border border-sky-200/70 rounded-2xl shadow-sm">
+      <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start text-center sm:text-left">
         <img src="/reviewer1.svg" alt="Arjun M." className="w-16 h-16 rounded-full object-cover" />
         <div>
           <p className="text-gray-700">
@@ -551,10 +551,10 @@ MRGENSEE shows live updates on bed availability, ER load, and doctor status — 
   </div>
 
   {/* Stats row */}
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-14">
-    <div className="text-center">
-      <div className="text-4xl font-extrabold text-sky-500">10,000+</div>
-      <div className="mt-1 text-gray-600">Emergency routes generated</div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-14 mb-14">
+    <div className="text-center px-4">
+      <div className="text-3xl md:text-4xl font-extrabold text-sky-500">10,000+</div>
+      <div className="mt-1 text-gray-600 text-sm md:text-base">Emergency routes generated</div>
     </div>
     <div className="text-center">
       <div className="text-4xl font-extrabold text-sky-500">200+</div>
