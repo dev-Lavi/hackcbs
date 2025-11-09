@@ -35,9 +35,15 @@ const LandingPage = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6">
-  Smart <span className="text-blue-500">Emergency Access</span>,<br />Simplified.
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
+  <span className="sm:whitespace-nowrap">
+    Smart <span className="text-blue-500">Emergency Access</span>,
+  </span>
+  <br className="hidden sm:block" />
+  Simplified.
 </h1>
+
+
 
 <div className="text-base md:text-lg text-gray-600 max-w-xl leading-relaxed">
   <p className="font-semibold text-blue-600 mb-2">

@@ -68,84 +68,69 @@ const HPFooter = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Logo and Description */}
-          <div>
-            <Link to="/" className="inline-block mb-4">
-              <img src="/logo.svg" alt="MRGENSEE" className="h-40 w-auto" />
-            </Link>
-            <p className="text-gray-600 text-sm">
-              Because Every Emergency
-              <br />
-              Deserves the Fastest Response
-            </p>
-          </div>
+        <div
+  className="
+    grid grid-cols-1 md:grid-cols-[1.2fr_1fr_1fr_1fr]
+    gap-8 mb-12
+    items-start           /* ⬅️ align all grid items to top */
+  "
+>
+  {/* Logo and Description */}
+  <div className="self-start">
+    <Link to="/" className="inline-block mb-4">
+      <img src="/logo.svg" alt="MRGENSEE" className="h-40 w-auto" />
+    </Link>
+    <p className="text-gray-600 text-sm">
+      Because Every Emergency
+      <br />
+      Deserves the Fastest Response
+    </p>
+  </div>
 
-          {/* Support Links */}
-          <div>
-            <h3 className="text-blue-500 font-semibold mb-4">Support</h3>
-            <ul className="space-y-2">
-              {footerLinks.support.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.path} className="text-gray-600 hover:text-blue-600 text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+  {/* Support Links */}
+<div>
+  <h3 className="text-blue-500 font-semibold mb-4 pl-8">Support</h3>
+  <ul className="space-y-2">
+    {footerLinks.support.map((link) => (
+      <li key={link.label}>
+        <Link to={link.path} className="text-gray-600 hover:text-blue-600 text-sm">
+          {link.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-blue-500 font-semibold mb-4">Legal</h3>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.path} className="text-gray-600 hover:text-blue-600 text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+{/* Legal Links */}
+<div>
+  <h3 className="text-blue-500 font-semibold mb-4 pl-8">Legal</h3>
+  <ul className="space-y-2">
+    {footerLinks.legal.map((link) => (
+      <li key={link.label}>
+        <Link to={link.path} className="text-gray-600 hover:text-blue-600 text-sm">
+          {link.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
-          {/* Services Links */}
-          <div>
-            <h3 className="text-blue-500 font-semibold mb-4">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.path} className="text-gray-600 hover:text-blue-600 text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+{/* Services Links */}
+<div>
+  <h3 className="text-blue-500 font-semibold mb-4 pl-8">Services</h3>
+  <ul className="space-y-2">
+    {footerLinks.services.map((link) => (
+      <li key={link.label}>
+        <Link to={link.path} className="text-gray-600 hover:text-blue-600 text-sm">
+          {link.label}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
 
-        {/* Bottom Section */}
-        <div className="border-t pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 text-sm mb-4 md:mb-0">
-              MRGENSEE 2025 © All Rights Reserved
-            </p>
-            <div className="flex space-x-6">
-              <h4 className="text-gray-600 text-sm mr-4">Follow us</h4>
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
+</div>
+
       </motion.div>
     </footer>
   );
